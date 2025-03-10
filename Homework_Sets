@@ -1,0 +1,26 @@
+unique_visitors = set()
+
+def add_visitor(visitor_id):
+    if visitor_id in unique_visitors:
+        print(f"Visitor '{visitor_id}' has already been counted.")
+    else:
+        unique_visitors.add(visitor_id)
+        print(f"Visitor '{visitor_id}' added.")
+
+visitor_ids = ['user123','user456','user123','user789','user456']
+
+for visitor in visitor_ids:
+    add_visitor(visitor)
+
+print("\nTotal unique visitors:", len(unique_visitors))
+
+# challenge part of the assignment
+
+user_input = input("Enter visitor IDs separated by a a comma: ")
+
+visitor_ids_from_input = [visitor.strip() for visitor in user_input.split(',')]
+
+for visitor in visitor_ids_from_input:
+    add_visitor(visitor)
+
+print("\nTotal unique visitors:", len(unique_visitors))
